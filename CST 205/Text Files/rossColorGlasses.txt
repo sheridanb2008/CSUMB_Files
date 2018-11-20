@@ -1,0 +1,11 @@
+def roseColoredGlasses():
+  pic = get_pic()
+  pixels = getPixels(pic)
+  for p in pixels:
+    r = getRed(p)
+    g = getGreen(p)
+    b = getBlue(p)
+    setRed(p,g * 1.25)
+    setGreen(p,g * 0.5)
+    setBlue(p,b * 0.5)
+  repaint(pic)

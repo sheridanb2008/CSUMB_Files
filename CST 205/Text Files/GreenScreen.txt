@@ -1,0 +1,19 @@
+
+def chromakey(foregroundPic,backgroundPic):
+  if(foregroundPic.getWidth() != backgroundPic.getWidth() or
+    foregroundPic.getHeight() != backgroundPic.getHeight()):
+    print("Foreground and background pictures must be the same size.")
+  greenScreenColor = makeColor(0,255,0)
+  foregroundPixels = getPixels(foregroundPic)
+  for row in range(foregroundPic.getHeight()):
+      for col in range(foregroundPic.getWidth()):
+        foregroundPixel = getPixel(foregroundPic,col,row)
+        pixelColor = getColor(foregroundPixel)
+        dist = distance(pixelColor,greenScreenColor)
+        if(dist < 185):
+          backgroundPixel = getPixel(backgroundPic,col,row)
+          backgroundColor = getColor(backgroundPixel)
+          setColor(foregroundPixel,backgroundColor)
+  return foregroundPic        
+
+  

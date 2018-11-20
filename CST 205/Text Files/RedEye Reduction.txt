@@ -1,0 +1,16 @@
+
+#red eye red color: 252,9,27
+def removeRedEye(pic):
+  redEyeColor = makeColor(252,9,27)
+  pixels = getPixels(pic)
+  for p in pixels:
+    pixelColor = getColor(p)
+    dist = distance(pixelColor,redEyeColor)
+    if(dist < 90):
+      #desaturate the color if it's too close to redeye
+      r = getRed(p)
+      g = getGreen(p)
+      b = getBlue(p)
+      luminance = r*0.299 + g*0.587 + b*0.114
+      newColor = makeColor(luminance,luminance,luminance)
+      setColor(p,newColor)

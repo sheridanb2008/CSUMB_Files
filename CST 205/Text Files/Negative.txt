@@ -1,0 +1,11 @@
+def makeNegative():
+  pic = get_pic()
+  pixels = getPixels(pic)
+  for p in pixels:
+    r = getRed(p)
+    g = getGreen(p)
+    b = getBlue(p)
+    setRed(p,255 - r)
+    setGreen(p,255 - g)
+    setBlue(p,255 - b)
+  repaint(pic)
